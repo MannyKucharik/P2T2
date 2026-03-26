@@ -5,24 +5,33 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   FirstName: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   LastName: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   Email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    lowercase: true,
+    match: /.+\@.+\..+/
   },
   Password: {
     type: String,
-    required: true
+    required: true,
+    minlength: 6
   },
   // Verification code 
   VerificationCode: {
     type: String
+  },
+  VerificationAttempts: {
+    type: Number,
+    default: 0
   },
   IsVerified: {
     type: Boolean,
@@ -32,6 +41,6 @@ const UserSchema = new Schema({
     type: Number,
     default: 0
   }
-});
+}, { timestamps: true });  
 
 module.exports = mongoose.model("Users", UserSchema);
