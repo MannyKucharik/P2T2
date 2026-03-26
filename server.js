@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 });
 
 // Connect to MongoDB
-const url = process.env.MONGODB_URI;
+const url = 'mongodb+srv://Tester:Tester123@cluster0.rxi4qr5.mongodb.net/VetNotes?retryWrites=true&w=majority';
 mongoose.connect(url)
   .then(() => console.log("Mongo DB connected!"))
   .catch(err => console.log(err));
