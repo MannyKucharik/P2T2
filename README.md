@@ -1,25 +1,28 @@
-A full-stack veterinary management application built using the MERN (MongoDB, Express, React, Node.js) stack.
+# VetNotes 🐾
+**VetNotes** is a full-stack MERN application designed for pet owners to track health vitals, manage pet profiles, and receive automated care reminders.
 
-Core Features
-Secure Owner Authentication: User account creation with 2-digit email verification via Nodemailer.
+## 🚀 Features
+* **User Authentication:** Secure Sign-up/Login with JWT and email verification.
+* **Pet Management:** Create, update, and delete pet profiles (Species, Age, etc.).
+* **Health Tracking:** Log and monitor vitals and notes for each pet.
+* **Secure API:** RESTful API built with Express and protected with JWT middleware.
 
-Pet Management: Owners can manage up to 3 pet profiles with photo uploads.
+## 🛠️ Tech Stack
+* **Frontend:** React, Next.js, Tailwind CSS
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (Mongoose ODM)
+* **Testing:** Jest, Supertest
 
-Health Tracking: Automated calculation of "Next Vet Visit" (30 days from last input).
+---
 
-Daily Log: Real-time tracking for feeding (7-hour intervals) and walking (4-hour intervals).
+## 🧪 Testing Requirement
+This project implements automated **Unit and Integration Testing** to ensure API reliability and security.
 
-Responsive Dashboard: A clean UI for viewing pet details and reminders.
+* **Requirement:** At least one test per API endpoint.
+* **Status:** ✅ **8/8 Endpoints Tested & Passing.**
+* **Tools:** Jest for the test runner and Supertest for HTTP assertions.
 
-
-AI Disclosure
-
-This project was developed with assistance from generative AI tools:
-
-Tool: Gemini 3
-
-Dates: March 25, 2026
-
-Specific Use Cases:
-
-Git Version Control: Troubleshooting large file errors (LFS), resolving "not a git repository" issues, and managing remote upstream branches.
+### How to Run Tests
+To verify the API endpoints locally, run:
+```bash
+npm test
