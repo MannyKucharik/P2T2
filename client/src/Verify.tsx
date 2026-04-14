@@ -8,7 +8,6 @@ const Verify: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
     
-    // Grabs the email from the previous page so the user knows where the code went
     const [email] = useState(location.state?.email || '');
     const [code, setCode] = useState('');
     const [message, setMessage] = useState('');
@@ -18,7 +17,6 @@ const Verify: React.FC = () => {
         try {
             await axios.post('http://localhost:5000/api/verify', { email, code });
             setMessage("CLEARANCE GRANTED");
-            // Send to login after successful verification
             setTimeout(() => navigate('/login'), 2000);
         } catch (err: any) {
             setMessage(err.response?.data?.error || 'INVALID CLEARANCE CODE');

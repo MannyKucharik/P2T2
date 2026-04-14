@@ -11,18 +11,11 @@ const App: React.FC = () => {
     <Router>
       <div className="App">
         <Routes>
-          {/* Landing page displays the Login component */}
           <Route path="/" element={<Login />} />
-
-          {/* New Authentication Routes */}
           <Route path="/register" element={<Register />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-
-          {/* Dashboard route */}
           <Route path="/dashboard" element={<Dashboard />} />
-
-          {/* Catch-all route to redirect any unknown URLs back to Login */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>

@@ -16,10 +16,7 @@ const Register: React.FC = () => {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         try {
-            // Registering the user
             await axios.post('http://localhost:5000/api/register', formData);
-            
-            // Success! Send them to verify page and pass the email so they don't re-type it
             navigate('/verify', { state: { email: formData.email } });
         } catch (err: any) {
             setMessage(err.response?.data?.error || 'REGISTRATION FAILED');

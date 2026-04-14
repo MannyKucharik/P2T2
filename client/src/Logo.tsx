@@ -5,14 +5,10 @@ const Logo: React.FC = () => {
         <div style={logoStyles.container}>
             <div style={logoStyles.brandingWrapper}>
                 <div style={logoStyles.mainTitle}>P2T2</div>
-                
                 <div style={logoStyles.subRow}>
-                    {/* Adjust 'left' to move ET under the P */}
                     <div style={{ ...logoStyles.verticalText, position: 'relative', left: '4%' }}>
                         <span>E</span><span>T</span>
                     </div>
-                    
-                    {/* Adjust 'left' or 'right' to move RACKER under the T */}
                     <div style={{ ...logoStyles.verticalText, position: 'relative', right: '35%' }}>
                         <span>R</span><span>A</span><span>C</span><span>K</span><span>E</span><span>R</span>
                     </div>

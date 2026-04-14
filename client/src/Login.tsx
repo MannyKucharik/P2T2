@@ -27,10 +27,6 @@ const Login: React.FC = () => {
     return (
         <div style={authStyles.wrapper}>
             <div style={authStyles.centerContainer}>
-                {/* LOGO SECTION:
-                   We use a massive width and 'flex: 1' logic to ensure the SVG 
-                   scales up to its maximum possible size within the viewport.
-                */}
                 <div style={authStyles.logoContainer}>
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                          <Logo />
@@ -89,13 +85,13 @@ export const authStyles: { [key: string]: React.CSSProperties } = {
         width: '100%',
         height: '100%'
     },
-    // Inside authStyles in Login.tsx
+
     logoContainer: {
         width: '100%',
         maxWidth: '800px',
         display: 'flex',
         justifyContent: 'center',
-        marginBottom: '2vh', // Use viewport height for consistent spacing
+        marginBottom: '2vh',
 },
     box: { 
         width: '450px', 
@@ -104,7 +100,7 @@ export const authStyles: { [key: string]: React.CSSProperties } = {
         textAlign: 'center', 
         backgroundColor: '#000', 
         boxShadow: '0 0 40px rgba(212, 175, 55, 0.4)',
-        zIndex: 10 // Ensures it stays above any background elements
+        zIndex: 10 
     },
     title: { color: '#FFF', letterSpacing: '5px', fontSize: '20px', marginBottom: '35px' },
     form: { display: 'flex', flexDirection: 'column', gap: '20px' },

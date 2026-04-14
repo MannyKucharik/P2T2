@@ -10,7 +10,6 @@ const Dashboard: React.FC = () => {
     const [editedNotes, setEditedNotes] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     
-    // New Pet Form States
     const [newPetName, setNewPetName] = useState('');
     const [newPetSpecies, setNewPetSpecies] = useState('');
     const [newWalkReq, setNewWalkReq] = useState(true);
