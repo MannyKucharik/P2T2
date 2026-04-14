@@ -4,8 +4,6 @@ import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import * as dotenv from 'dotenv';
 import { sendVerificationEmail } from './utils/mailer.js';
-
-// Import Models
 import Pet from './models/pets.js'; 
 import User, { IUser } from './models/user.js';
 
@@ -17,7 +15,6 @@ app.use(express.json());
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_super_secret_key_123';
 
-// CORS Headers
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -27,10 +24,15 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 // Connect to MongoDB
 const url = process.env.MONGODB_URI || 'mongodb+srv://Tester:Tester123@cluster0.rxi4qr5.mongodb.net/VetNotes?retryWrites=true&w=majority';
-mongoose.connect(url)
-  .then(() => console.log("Mongo DB connected!"))
-  .catch(err => console.log("Connection Error:", err));
+if (process.env.NODE_ENV !== 'test') {
+  mongoose.connect(url)
+    .then(() => console.log("Mongo DB connected!"))
+    .catch(err => console.log("Connection Error:", err));
 
+  app.listen(5000, () => {
+      console.log("Server listening on port 5000");
+  });
+}
 // --- LOGIN ROUTE ---
 app.post('/api/login', async (req: Request, res: Response) => {
   const { email, password } = req.body;
@@ -226,11 +228,11 @@ app.patch('/api/pets/:id', async (req, res) => {
   }
 });
 
+// --- DELETE PET ROUTE ---
 app.delete('/api/pets/:id', async (req, res) => {
   try {
       const petId = req.params.id;
       
-      // Use findByIdAndDelete to remove it from the 'Pet' collection
       const deletedPet = await Pet.findByIdAndDelete(petId);
 
       if (!deletedPet) {
