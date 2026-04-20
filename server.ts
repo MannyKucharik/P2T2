@@ -10,7 +10,18 @@ import User, { IUser } from './models/user.js';
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    // Dynamic CORS configuration based on environment
+    origin:
+      process.env.NODE_ENV === "production"
+        ? process.env.CLIENT_URL || "https://p2t2.aravptulsi.com"
+        : "http://localhost:5173",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 app.use(express.json());
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_super_secret_key_123';
