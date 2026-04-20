@@ -178,9 +178,6 @@ app.post('/api/reset-password', async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-    console.log("Server listening on port 5000");
-});
 
 // --- ADD PETS ROUTE ---
 app.post('/api/pets', async (req, res) => {
