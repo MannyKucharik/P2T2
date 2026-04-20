@@ -37,7 +37,7 @@ const Dashboard: React.FC = () => {
     }, [navigate]);
 
     const fetchPets = async (userId: string) => {
-        const res = await fetch(`http://localhost:5000/api/pets/${userId}`);
+        const res = await fetch(`https://p2t2.aravptulsi.com/api/pets/${userId}`);
         const data = await res.json();
         const reversed = data.reverse();
         setPets(reversed);
@@ -61,7 +61,7 @@ const Dashboard: React.FC = () => {
         const newDate = new Date();
         newDate.setHours(hours, minutes, 0, 0);
 
-        await fetch(`http://localhost:5000/api/pets/${selectedPet._id}`, {
+        await fetch(`https://p2t2.aravptulsi.com/api/pets/${selectedPet._id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ [type]: newDate.toISOString() }),
@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
 
     const handleDelete = async (petId: string) => {
         if (!window.confirm("CONFIRM DELETION OF SQUAD MEMBER?")) return;
-        await fetch(`http://localhost:5000/api/pets/${petId}`, { method: 'DELETE' });
+        await fetch(`https://p2t2.aravptulsi.com/api/pets/${petId}`, { method: 'DELETE' });
         setSelectedPet(null);
         fetchPets(user.id);
     };
@@ -79,7 +79,7 @@ const Dashboard: React.FC = () => {
     const handleUpdate = async () => {
         if (!selectedPet) return;
         if (isEditing) {
-            await fetch(`http://localhost:5000/api/pets/${selectedPet._id}`, {
+            await fetch(`https://p2t2.aravptulsi.com/api/pets/${selectedPet._id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ notes: editedNotes }),
@@ -181,7 +181,7 @@ const Dashboard: React.FC = () => {
                 <div style={dashStyles.modal}>
                     <form onSubmit={async (e) => {
                         e.preventDefault();
-                        await fetch('http://localhost:5000/api/pets', {
+                        await fetch('https://p2t2.aravptulsi.com/api/pets', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({

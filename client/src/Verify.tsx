@@ -15,7 +15,7 @@ const Verify: React.FC = () => {
     const handleVerify = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/verify', { email, code });
+            await axios.post('https://p2t2.aravptulsi.com/api/verify', { email, code });
             setMessage("CLEARANCE GRANTED");
             setTimeout(() => navigate('/login'), 2000);
         } catch (err: any) {

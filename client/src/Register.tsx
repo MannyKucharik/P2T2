@@ -16,7 +16,7 @@ const Register: React.FC = () => {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/register', formData);
+            await axios.post('https://p2t2.aravptulsi.com/api/register', formData);
             navigate('/verify', { state: { email: formData.email } });
         } catch (err: any) {
             setMessage(err.response?.data?.error || 'REGISTRATION FAILED');
